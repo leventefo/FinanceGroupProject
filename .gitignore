@@ -1,0 +1,7 @@
+RED/
+env/
+fred_api_key.txt
+test.py
+data/
+regressions/
+series/
