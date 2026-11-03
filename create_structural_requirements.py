@@ -23,7 +23,7 @@ def create_structures(structures_lst):
 
 def main():
 
-    structures = ["data", "series", "regression", "plots", "fred_api_key.txt"]
+    structures = ["data", "series", "regressions", "plots", "fred_api_key.txt"]
     create_structures(structures)
 
 main()
