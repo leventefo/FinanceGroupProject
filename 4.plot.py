@@ -1,6 +1,7 @@
 import plotly.graph_objects as go
 import pandas as pd
 import statsmodels.api as sm
+from datetime import datetime
 
 
 
@@ -28,15 +29,16 @@ def create_coefficient_dataframe(res):
 
 def touch_up_figure(fig):
 
-    fig.update_layout(margin=dict(t=50, b=120, l=200, r=60))
+    fig.update_layout(margin=dict(t=50, b=120, l=200, r=150))
     fig.update_layout(margin = dict(autoexpand = False))
     fig.update_layout(paper_bgcolor = "#FFFFFF")
     fig.update_layout(plot_bgcolor = "#FFFFFF")
     fig.update_layout(font_family = "Garamond", font_weight = 1000, font_size = 19)
     fig.update_yaxes(tickfont = dict(size = 15, weight = 600))
     fig.update_xaxes(title_font = dict(size = 17), title_text = "Coefficient")
-    fig.update_layout(legend2 = dict(orientation = "h", y = -0.2, x = 0.375, font_color = "#9C2225"))
+    fig.update_layout(legend2 = dict(orientation = "h", y = -0.2, x = 0.34, font_color = "#9C2225"))
     fig.update_layout(title_font = dict(size = 20))
+    fig.update_yaxes(ticksuffix = " ")
 
 
 
@@ -109,6 +111,8 @@ def main():
     fig = create_figure("")
     plot_coefficient_dataframe(coefficient_df, fig)
 
+
     fig.show(renderer="browser")
+    fig.write_image(f"plots/{datetime.now().strftime("%Y-%m-%d--%H-%M-%S")}.png", width = 800, height = 500, scale = 6)
 
 main()
